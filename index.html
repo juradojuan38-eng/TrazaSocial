@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrazaSocial — Transparencia social</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/><path d="m16 4 1.4 1.4L20 2.8"/></svg></div><div><strong>TrazaSocial</strong><small>Transparencia social</small></div></div>
+  <div><div class="navlabel">ESPACIO DE TRABAJO</div><nav class="nav"><button class="active" data-page="dashboard"><span class="ico">▦</span>Panel principal</button><button data-page="documents"><span class="ico">▤</span>Documentos <span class="pill" id="pillDocs" style="margin-left:auto">12</span></button><button data-page="projects"><span class="ico">◫</span>Proyectos sociales</button><button data-page="public"><span class="ico">◎</span>Vista ciudadana</button></nav></div>
+  <div><div class="navlabel">ADMINISTRACIÓN</div><nav class="nav"><button data-page="review"><span class="ico">☑</span>Revisión humana <span class="pill" id="pillReview" style="margin-left:auto">3</span></button><button data-page="settings"><span class="ico">⚙</span>Configuración</button></nav></div>
+  <div class="sidebottom"><strong>🛡️ Protección primero</strong><p>La IA sugiere. Una persona revisa. Solo lo aprobado como público puede publicarse.</p><div class="progress"><span></span></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb">TrazaSocial <span style="margin:0 8px;color:#c4ced1">/</span> <b id="crumb">Panel principal</b></div><div class="topright"><button class="iconbtn" id="helpBtn" title="Ayuda">?</button><button class="iconbtn" id="notifBtn" title="Notificaciones">♧</button><div class="user"><div class="avatar">AR</div><span>Andrea Ríos<br><small style="color:#84939a;font-weight:500">Auditora responsable</small></span></div></div></header>
+<div class="content">
+
+<section class="pageview active" id="dashboard">
+ <div class="heading"><div><div class="eyebrow">RESUMEN GENERAL</div><h1>Buen día, Andrea 👋</h1><p>Este es el estado de la documentación de inversión social.</p></div><button class="primary" id="uploadBtn">＋ Cargar documento</button></div>
+ <div class="stats">
+  <div class="stat"><div class="stathead">Documentos procesados <span class="staticon">▤</span></div><h2 id="processedCount">128</h2><p><span class="green">↑ 12%</span> respecto al mes anterior</p></div>
+  <div class="stat"><div class="stathead">Pendientes de revisión <span class="staticon">◷</span></div><h2 id="pendingCount">3</h2><p>Requieren validación humana</p></div>
+  <div class="stat"><div class="stathead">Aprobados para publicar <span class="staticon">✓</span></div><h2 id="approvedCount">86</h2><p>Disponibles para consulta ciudadana</p></div>
+  <div class="stat"><div class="stathead">Protegidos / internos <span class="staticon">♧</span></div><h2 id="protectedCount">39</h2><p>Resguardados fuera del portal público</p></div>
+ </div>
+ <div class="layout">
+  <div class="panel"><div class="panelhead"><div><h3>Documentos recientes</h3><p>Últimos archivos incorporados a la plataforma</p></div><button class="secondary" data-goto="documents">Ver todos →</button></div>
+   <div class="tablewrap"><table><thead><tr><th>Documento</th><th>Proyecto</th><th>Clasificación IA</th><th>Estado</th><th></th></tr></thead><tbody id="docRows"></tbody></table></div>
+   <div class="panelhead" style="padding-top:14px"><span style="font-size:10px;color:var(--muted)">Prototipo demostrativo · datos de ejemplo</span><button class="secondary" data-goto="review">Ir a revisión →</button></div></div>
+  <div class="rightcol">
+   <div class="panel"><div class="panelhead"><div><h3>Cómo funciona</h3><p>Un proceso con control humano</p></div><span class="pill">4 etapas</span></div><div class="workflow"><div class="step"><div class="stepnum">1</div><div><strong>Cargar documento</strong><p>Se incorpora el archivo y se asocia a un proyecto.</p></div></div><div class="step"><div class="stepnum">2</div><div><strong>Clasificación asistida por IA</strong><p>Propone Público, Interno o Confidencial.</p></div></div><div class="step"><div class="stepnum">3</div><div><strong>Validación humana</strong><p>Una persona confirma o corrige la clasificación.</p></div></div><div class="step"><div class="stepnum">4</div><div><strong>Publicación responsable</strong><p>Solo lo aprobado como público genera resumen ciudadano.</p></div></div></div><div class="human"><div class="shield">🛡️</div><div><strong>La decisión final es humana</strong><p>La inteligencia artificial no publica documentos por sí sola.</p></div></div></div>
+   <div class="panel"><div class="panelhead"><div><h3>Proyectos destacados</h3><p>Seguimiento de inversión social</p></div><button class="rowaction" data-goto="projects">···</button></div><div class="project" id="featuredProjects"></div></div>
+  </div>
+ </div>
+ <div class="footnote">TrazaSocial · Prototipo académico · La clasificación y los datos de esta demo son simulados.</div>
+</section>
+
+<section class="pageview" id="documents"><div class="heading"><div><div class="eyebrow">ARCHIVO DIGITAL</div><h1>Documentos</h1><p>Organizá los archivos y consultá su estado de revisión.</p></div><button class="primary" id="uploadBtn2">＋ Cargar documento</button></div>
+ <div class="panel"><div class="panelhead"><div><h3>Todos los documentos</h3><p>Ejemplos ficticios para mostrar el funcionamiento.</p></div><select id="filterStatus" class="secondary"><option value="all">Todos los estados</option><option value="Público">Público</option><option value="Interno">Interno</option><option value="Confidencial">Confidencial</option></select></div>
+ <div class="tablewrap"><table><thead><tr><th>Documento</th><th>Proyecto</th><th>Clasificación IA</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="allDocRows"></tbody></table></div></div></section>
+
+<section class="pageview" id="review"><div class="heading"><div><div class="eyebrow">CONTROL HUMANO</div><h1>Revisión de documentos</h1><p>Revisá la propuesta de la IA antes de habilitar cualquier publicación.</p></div></div>
+ <div class="panel"><div class="panelhead"><div><h3>Cola de revisión</h3><p>La IA propone una categoría; la persona responsable decide.</p></div><span class="pill">Pendientes</span></div><div id="reviewList"></div></div>
+ <div class="footnote">En una implementación real, se deberían aplicar reglas de seguridad y auditoría antes de publicar.</div></section>
+
+<section class="pageview" id="projects"><div class="heading"><div><div class="eyebrow">SEGUIMIENTO</div><h1>Proyectos sociales</h1><p>Vista de ejemplo de los proyectos y sus documentos asociados.</p></div><button class="primary" id="newProject">＋ Nuevo proyecto</button></div>
+ <div class="stats">
+  <div class="stat"><div class="stathead">Proyectos activos <span class="staticon">◫</span></div><h2 id="projCount">3</h2><p>Iniciativas en seguimiento</p></div>
+  <div class="stat"><div class="stathead">Documentación pública <span class="staticon">◎</span></div><h2 id="projPublic">86</h2><p>Archivos aprobados</p></div>
+  <div class="stat"><div class="stathead">En revisión <span class="staticon">◷</span></div><h2 id="projectPending">3</h2><p>Esperando validación humana</p></div>
+  <div class="stat"><div class="stathead">Resguardados <span class="staticon">♧</span></div><h2 id="projProtected">39</h2><p>Internos o confidenciales</p></div>
+ </div>
+ <div class="panel"><div class="panelhead"><div><h3>Proyectos en seguimiento</h3><p>Montos y datos ilustrativos, no corresponden a registros reales.</p></div></div><div class="project" id="projectList"></div></div></section>
+
+<section class="pageview" id="public"><div class="heading"><div><div class="eyebrow">ACCESO CIUDADANO</div><h1>Información pública</h1><p>Una forma sencilla de entender cómo avanzan los proyectos sociales.</p></div><span class="pill">Solo contenido aprobado</span></div>
+ <div class="stats">
+  <div class="stat"><div class="stathead">Proyectos publicados <span class="staticon">◎</span></div><h2 id="pubProjects">3</h2><p>Información abierta a la comunidad</p></div>
+  <div class="stat"><div class="stathead">Documentos disponibles <span class="staticon">▤</span></div><h2 id="publicCount">86</h2><p>Revisados y aprobados por una persona</p></div>
+ </div>
+ <div class="panel" style="margin-bottom:18px"><div class="panelhead"><div><h3>¿En qué se invierten los recursos?</h3><p>Resumen en lenguaje claro para la ciudadanía.</p></div></div><div class="project" id="publicList"></div></div>
+ <div class="panel"><div class="panelhead"><div><h3>Documentos publicados</h3><p>Solo aparecen los aprobados como públicos por una persona.</p></div></div><div class="project" id="publicDocs"></div></div>
+ <p class="footnote">Ejemplo de interfaz: el contenido no es información oficial ni datos reales de proyectos.</p></section>
+
+<section class="pageview" id="settings"><div class="heading"><div><div class="eyebrow">PREFERENCIAS</div><h1>Configuración</h1><p>Opciones de muestra del espacio de trabajo.</p></div></div>
+ <div class="panel" style="padding:26px;max-width:650px"><h3 style="margin-top:0">Reglas de publicación</h3><p style="font-size:12px;color:var(--muted);line-height:1.6">En este prototipo, la publicación requiere validación humana. Los documentos internos o confidenciales no se muestran en la vista ciudadana.</p><label class="field">Perfil de revisión<select><option>Auditora responsable</option><option>Organización participante</option><option>Consulta ciudadana</option></select></label><label class="field">Política de clasificación<select><option>Propuesta IA + aprobación humana</option><option>Revisión manual</option></select></label><button class="primary" id="saveSettings">Guardar preferencias de demostración</button></div></section>
+
+</div></main></div>
+<div id="modalHost"></div><div id="toastHost"></div>
+
+<script src="js/app.js"></script>
+</body></html>
